@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&family=Eater&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 5%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 5%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 5%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(222, 47%, 11%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 47%, 11%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 47%, 11%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(222, 84%, 5%);
+  --radius: 0.5rem;
+  --chart-1: hsl(12, 76%, 61%);
+  --chart-2: hsl(173, 58%, 39%);
+  --chart-3: hsl(197, 37%, 24%);
+  --chart-4: hsl(43, 74%, 66%);
+  --chart-5: hsl(27, 87%, 67%);
+  --sidebar-background: hsl(0, 0%, 98%);
+  --sidebar-foreground: hsl(240, 5%, 26%);
+  --sidebar-primary: hsl(240, 6%, 10%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(240, 5%, 96%);
+  --sidebar-accent-foreground: hsl(240, 6%, 10%);
+  --sidebar-border: hsl(220, 13%, 91%);
+  --sidebar-ring: hsl(217, 10%, 64%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 5%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 33%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(224, 71%, 4%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(224, 71%, 4%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 33%, 17%);
+  --input: hsl(217, 33%, 17%);
+  --primary: hsl(210, 40%, 98%);
+  --primary-foreground: hsl(222, 47%, 11%);
+  --secondary: hsl(217, 33%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 33%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(217, 33%, 17%);
+  --chart-1: hsl(220, 70%, 50%);
+  --chart-2: hsl(160, 60%, 45%);
+  --chart-3: hsl(30, 80%, 55%);
+  --chart-4: hsl(280, 65%, 60%);
+  --chart-5: hsl(340, 75%, 55%);
+  --sidebar-background: hsl(240, 6%, 10%);
+  --sidebar-foreground: hsl(240, 5%, 84%);
+  --sidebar-primary: hsl(224, 71%, 4%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(240, 4%, 16%);
+  --sidebar-accent-foreground: hsl(240, 5%, 84%);
+  --sidebar-border: hsl(240, 4%, 16%);
+  --sidebar-ring: hsl(240, 4%, 16%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Aurora Background Animation */
+.aurora-bg {
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  animation: aurora 10s infinite alternate;
+}
+
+@keyframes aurora {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.message-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-author {
+  font-weight: bold;
+}
+
+.message-content {
+  margin-top: 2px;
+}
+
+.emoji-picker {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.emoji-picker .emoji {
+  cursor: pointer;
+}
+
+.aurora-layer-1 {
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 255, 150, 0.1) 25%, 
+    rgba(0, 150, 255, 0.1) 50%, 
+    rgba(150, 0, 255, 0.1) 75%, 
+    transparent 100%);
+  animation: aurora1 8s ease-in-out infinite alternate;
+}
+
+.aurora-layer-2 {
+  background: linear-gradient(135deg, 
+    transparent 0%, 
+    rgba(255, 100, 150, 0.08) 30%, 
+    rgba(100, 255, 200, 0.08) 60%, 
+    transparent 100%);
+  animation: aurora2 12s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-layer-3 {
+  background: radial-gradient(ellipse at 70% 30%, 
+    rgba(255, 200, 100, 0.06) 0%, 
+    transparent 50%);
+  animation: aurora3 15s ease-in-out infinite;
+}
+
+@keyframes aurora1 {
+  0% { transform: translateX(-100%) rotate(0deg); }
+  100% { transform: translateX(100%) rotate(360deg); }
+}
+
+@keyframes aurora2 {
+  0% { transform: translateY(-100%) scale(1); }
+  100% { transform: translateY(100%) scale(1.2); }
+}
+
+@keyframes aurora3 {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  50% { transform: translate(50%, 50%) scale(1.5); opacity: 0.1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+}
+
+/* Horror Font Styles */
+.horror-font {
+  font-family: Arial, sans-serif;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+.horror-subtitle {
+  font-family: Arial, sans-serif;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+/* Ghost Text Animations */
+.animated-ghost-text {
+  animation: ghostFloat 3s ease-in-out infinite, ghostGlow 2s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+.ghost-text-glow {
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 0, 0.4),
+    0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.ghost-glow {
+  box-shadow: 
+    0 0 10px rgba(255, 0, 0, 0.3),
+    0 0 20px rgba(255, 0, 0, 0.2),
+    inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+.floating-icon {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes ghostFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+  }
+  25% { 
+    transform: translateY(-5px) scale(1.02);
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.05);
+  }
+  75% { 
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+@keyframes ghostGlow {
+  0% {
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 0, 0, 0.6),
+      0 0 15px rgba(255, 0, 0, 0.4);
+  }
+  100% {
+    text-shadow: 
+      0 0 8px rgba(255, 255, 255, 1),
+      0 0 15px rgba(255, 0, 0, 0.8),
+      0 0 25px rgba(255, 0, 0, 0.6),
+      0 0 35px rgba(255, 0, 0, 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-8px);
+  }
+}
+
+/* Custom chat styles */
+.message-gradient-sent {
+  background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(262, 83%, 58%) 100%);
+}
+
+.message-gradient-received {
+  background: linear-gradient(135deg, hsl(215, 25%, 27%) 0%, hsl(215, 16%, 47%) 100%);
+}
+
+.message-container {
+  transition: transform 0.2s ease;
+}
+
+.message-container.swiped {
+  transform: translateX(80px);
+}
+
+/* Scrollbar styling for webkit browsers */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: hsl(217, 33%, 17%);
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: hsl(215, 20%, 65%);
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: hsl(215, 20%, 75%);
+}
+
+/* Touch-friendly mobile interactions */
+@media (max-width: 768px) {
+  .message-container {
+    touch-action: pan-y;
+  }
+  
+  .message-container:not(.flex-row-reverse) {
+    touch-action: pan-x pan-y;
+  }
+}
+
+/* Animation for copy success feedback */
+.copy-success {
+  animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
